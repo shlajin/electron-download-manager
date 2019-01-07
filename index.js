@@ -115,7 +115,7 @@ const download = (options, callback) => {
     request.on('response', function (response) {
         request.abort();
 
-        const filename = decodeURIComponent(path.basename(options.url));
+        const filename = options.filename || decodeURIComponent(path.basename(options.url));
         const url = decodeURIComponent(options.url);
 
         queue.push({
